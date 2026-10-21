@@ -22,8 +22,8 @@ function main() {
         console.log("No notes yet. Add one with: notes add <text>");
         return;
       }
-      for (const note of notes) {
-        console.log(`#${note.id}  ${note.text}`);
+      for (const [index, note] of notes.entries()) {
+        console.log(`#${index + 1} - ${note.text}`);
       }
       break;
     }
@@ -34,6 +34,8 @@ function main() {
       break;
     }
     default:
+      console.log(`Welcome to the notes app!`);
+      console.log("Usage: notes <command> [args]");
       console.log("Commands: add <text> | list | delete <id>");
       console.log(`(Session locks after ${config.SESSION_TIMEOUT_MINUTES} minutes of inactivity.)`);
   }
